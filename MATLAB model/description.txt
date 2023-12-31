@@ -1,0 +1,57 @@
+================MATLAB Model=====================
+-------------------------------------------------
+-----Tumor invasion-metastatic cascade model-----
+-------------------------------------------------
+
+   our MATLAB model studies the growth of tumors from
+the beginning by assuming that there is a random number
+of tumor cells in a primary site, until it starts to
+spread to other secondary sites, and invades these sites
+with the same algorithim as the primary, and we distinguished
+our tumor cells into 2 different types, mesenchymal and epithelial.
+
+this model has multiple stages and they are as follows:
+   1. invasion 
+   2. intravasation
+   3. travel through vessel
+   4. extravasation
+   5. invasion in secondary sites
+
+first the invasion:
+
+   it is the spread and movement of tumor cells in the primary
+site and it continues to spread under the PDE equation
+       ∂𝑐k/∂t= 𝐷k.∇^2.𝑐k  − ∅k.∇ . (𝑐k.∇.𝜔)
+where K could stand for epithelial or mesenchymal cells.
+   we also included some factors to our model like the MDE
+and ECM that we refered to as m and w respectively,
+and the followed the PDE equation:
+       ∂m/∂t = 𝐷𝑚.∇^2.𝑚 + Θ.𝑐𝑀 − Λ.m
+and
+       𝜕𝜔/𝜕𝑡 = −(Γ1.𝑐𝑀 + Γ2.𝑚).w
+
+then there is the intravasation stage:
+
+   after the tumor touches a vasculature its cells can enter
+the blood stream to start spreading to other body parts
+the process of entering is what known as inravasation.
+
+then we start the travelling through blood stage:
+
+   the tumor cells that entered the blood stream keeps moving
+for a period of time, during this period the tumor cells
+faces the possibility of surviving or dying if it survives
+we move to the next stage.
+
+the next stage is extravasation:
+
+   after the tumor cells finishes its period in the blood,
+the model then decides which secondary site in the body will
+the cells exit to based on different probabilities.
+
+after exiting we move to invasion again:
+
+   the cells that traveled to this secondary site then starts to
+spread and invade just like in the primary site with the same
+equation but it cannot intravasate from this secondary site
+to the vasculature.
